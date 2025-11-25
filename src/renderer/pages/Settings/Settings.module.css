@@ -1,0 +1,388 @@
+/* Settings.module.css */
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  background: linear-gradient(135deg, #fce7f3 0%, #fdf2f8 50%, #f3f4f6 100%);
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.mainContent {
+  flex: 1;
+  padding: 30px;
+  overflow: auto;
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.pageTitle {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 5px 0;
+  font-family: 'Playfair Display', serif;
+}
+
+.subtitle {
+  color: #6b7280;
+  margin: 0;
+  font-size: 16px;
+}
+
+.content {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #fbcfe8;
+  box-shadow: 0 2px 4px rgba(219, 39, 119, 0.1);
+  padding: 40px;
+}
+
+/* Logo Section */
+.logoSection {
+  text-align: center;
+  padding: 30px 0;
+  border-bottom: 2px solid #f3f4f6;
+  margin-bottom: 40px;
+}
+
+.logoImageContainer {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 20px;
+  border-radius: 60px;
+  overflow: hidden;
+  border: 4px solid #db2777;
+  box-shadow: 0 4px 12px rgba(219, 39, 119, 0.2);
+}
+
+.logoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.logoTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 5px 0;
+  font-family: 'Playfair Display', serif;
+}
+
+.logoSubtitle {
+  font-size: 16px;
+  color: #6b7280;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Cards Section */
+.cardsSection {
+  margin-bottom: 40px;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 24px 0;
+  letter-spacing: 0.3px;
+  text-align: center;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Card Styles */
+.card {
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 30px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-color: #db2777;
+}
+
+.cardActive {
+  border-color: #db2777;
+  background: #fdf2f8;
+  box-shadow: 0 8px 16px rgba(219, 39, 119, 0.2);
+}
+
+.cardIcon {
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  transition: all 0.3s ease;
+}
+
+.card:hover .cardIcon {
+  transform: scale(1.1);
+}
+
+.iconBlue {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.iconGreen {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.iconRed {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.cardCount {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+  letter-spacing: 0.5px;
+}
+
+.cardLabel {
+  font-size: 15px;
+  font-weight: 600;
+  color: #6b7280;
+  letter-spacing: 0.3px;
+}
+
+/* Bottom Screen */
+.bottomScreen {
+  margin-top: 40px;
+  border-top: 2px solid #e5e7eb;
+  padding-top: 30px;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bottomScreenHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #f3f4f6;
+}
+
+.bottomScreenTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+  letter-spacing: 0.3px;
+}
+
+.closeButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #fee2e2;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dc2626;
+  font-size: 20px;
+  transition: all 0.2s;
+}
+
+.closeButton:hover {
+  background: #fecaca;
+  transform: scale(1.05);
+}
+
+.bottomScreenContent {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 20px;
+  min-height: 400px;
+}
+
+/* Make the nested components fit properly */
+.bottomScreenContent > div {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  height: auto !important;
+}
+
+.bottomScreenContent .headerContainer {
+  display: none !important;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .cardsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  
+  .cardIcon {
+    width: 70px;
+    height: 70px;
+    font-size: 32px;
+  }
+  
+  .cardCount {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .mainContent {
+    padding: 20px;
+  }
+  
+  .content {
+    padding: 20px;
+  }
+  
+  .pageTitle {
+    font-size: 24px;
+  }
+  
+  .subtitle {
+    font-size: 14px;
+  }
+  
+  .logoImageContainer {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .logoTitle {
+    font-size: 24px;
+  }
+  
+  .cardsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  
+  .card {
+    padding: 20px 12px;
+  }
+  
+  .cardIcon {
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+  }
+  
+  .cardCount {
+    font-size: 20px;
+  }
+  
+  .cardLabel {
+    font-size: 13px;
+  }
+  
+  .bottomScreenTitle {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainContent {
+    padding: 15px;
+  }
+  
+  .content {
+    padding: 15px;
+  }
+  
+  .pageTitle {
+    font-size: 20px;
+  }
+  
+  .logoSection {
+    padding: 20px 0;
+    margin-bottom: 30px;
+  }
+  
+  .logoImageContainer {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .logoTitle {
+    font-size: 20px;
+  }
+  
+  .logoSubtitle {
+    font-size: 14px;
+  }
+  
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .card {
+    padding: 24px 20px;
+  }
+  
+  .cardIcon {
+    width: 70px;
+    height: 70px;
+    font-size: 32px;
+  }
+  
+  .cardCount {
+    font-size: 24px;
+  }
+  
+  .cardLabel {
+    font-size: 14px;
+  }
+  
+  .bottomScreenTitle {
+    font-size: 18px;
+  }
+  
+  .bottomScreenContent {
+    padding: 12px;
+  }
+}

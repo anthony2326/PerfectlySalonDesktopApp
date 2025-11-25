@@ -1,0 +1,302 @@
+/* RemoveService.module.css */
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f9fafb;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.scrollView {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.loadingContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f3f4f6;
+  border-top-color: #db2777;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loadingText {
+  margin-top: 16px;
+  font-size: 16px;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.headerContainer {
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.backButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #f3f4f6;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1f2937;
+  font-size: 20px;
+  transition: all 0.2s;
+}
+
+.backButton:hover {
+  background: #e5e7eb;
+  transform: scale(1.05);
+}
+
+.headerTitle {
+  flex: 1;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 800;
+  color: #1f2937;
+  margin: 0;
+  letter-spacing: 0.3px;
+}
+
+.headerRight {
+  width: 40px;
+}
+
+.contentContainer {
+  padding: 20px;
+  padding-bottom: 40px;
+}
+
+.warningBox {
+  display: flex;
+  align-items: center;
+  background: #fee2e2;
+  border-left: 4px solid #dc2626;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.warningBox i {
+  color: #dc2626;
+  font-size: 24px;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.warningText {
+  flex: 1;
+  font-size: 14px;
+  color: #991b1b;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+}
+
+.categorySection {
+  margin-bottom: 32px;
+}
+
+.categoryHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.categoryIconContainer {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 12px;
+  font-size: 24px;
+}
+
+.categoryInfo {
+  flex: 1;
+}
+
+.categoryName {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1f2937;
+  letter-spacing: 0.3px;
+  margin: 0 0 2px 0;
+}
+
+.categoryCount {
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 500;
+  margin: 0;
+}
+
+.emptyState {
+  padding: 24px;
+  text-align: center;
+}
+
+.emptyStateText {
+  font-size: 14px;
+  color: #9ca3af;
+  font-style: italic;
+  margin: 0;
+}
+
+.serviceCard {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s;
+}
+
+.serviceCard:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.serviceInfo {
+  flex: 1;
+  margin-right: 12px;
+}
+
+.serviceName {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 2px 0;
+}
+
+.serviceSubtitle {
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 500;
+  margin: 0 0 4px 0;
+}
+
+.priceText {
+  font-size: 14px;
+  font-weight: 700;
+  color: #16a34a;
+  letter-spacing: 0.2px;
+  margin: 0;
+}
+
+.removeButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #dc2626;
+  color: #ffffff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.removeButton:hover {
+  background: #b91c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(220, 38, 38, 0.3);
+}
+
+.removeButton:active {
+  transform: translateY(0);
+}
+
+.removeButtonDisabled {
+  background: #f87171;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.removeButtonDisabled:hover {
+  background: #f87171;
+  transform: none;
+  box-shadow: none;
+}
+
+.smallSpinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .serviceCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .serviceInfo {
+    margin-right: 0;
+    margin-bottom: 12px;
+    width: 100%;
+  }
+  
+  .removeButton {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerTitle {
+    font-size: 18px;
+  }
+  
+  .contentContainer {
+    padding: 15px;
+  }
+  
+  .categoryName {
+    font-size: 18px;
+  }
+  
+  .warningBox {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .warningBox i {
+    margin: 0 0 8px 0;
+  }
+}

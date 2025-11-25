@@ -1,0 +1,161 @@
+/* Import Font Awesome */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
+
+/* Sidebar Styles */
+.sidebar {
+  width: 250px;
+  background: white;
+  box-shadow: 0 4px 6px rgba(219, 39, 119, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.logoSection {
+  padding: 20px;
+  border-bottom: 1px solid #fbcfe8;
+  display: flex;
+  align-items: center;
+}
+
+.logoIcon {
+  width: 32px;
+  height: 32px;
+  background: #db2777;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  overflow: hidden;
+}
+
+.logoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.logoSquare {
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 2px;
+}
+
+.logoText {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  font-family: "Playfair Display", serif;
+}
+
+.userInfo {
+  padding: 20px;
+  border-bottom: 1px solid #fbcfe8;
+  background: #fce7f3;
+}
+
+.userName {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.userRole {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.adminBadge {
+  font-size: 12px;
+  color: #db2777;
+  background: #fbcfe8;
+  padding: 2px 8px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.navigation {
+  flex: 1;
+  padding: 20px 0;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: #6b7280;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.navItem:hover {
+  background: #fce7f3;
+  color: #db2777;
+}
+
+.navItemActive {
+  color: #db2777;
+  background: #fce7f3;
+  border-right: 3px solid #db2777;
+  font-weight: 600;
+}
+
+.navIcon {
+  margin-right: 12px;
+  font-size: 16px;
+}
+
+.logoutSection {
+  padding: 20px;
+  border-top: 1px solid #fbcfe8;
+}
+
+.logoutButton {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.logoutButton:hover {
+  color: #db2777;
+}
+
+.logoutIcon {
+  margin-right: 8px;
+}
+
+/* Responsive Design for Sidebar */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 2px 4px rgba(219, 39, 119, 0.1);
+  }
+
+  .navigation {
+    padding: 10px 0;
+  }
+
+  .navItem {
+    padding: 8px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logoText {
+    font-size: 16px;
+  }
+}

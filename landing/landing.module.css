@@ -1,0 +1,786 @@
+* {
+  box-sizing: border-box;
+}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  height: 100vh;
+  background: linear-gradient(135deg, #9d3759 0%, #7a2f46 50%, #2d2f35 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Poppins, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.mainCard {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 550px;
+  border-radius: 24px;
+  box-shadow: 0 25px 50px -12px rgba(219, 39, 119, 0.25);
+  overflow: hidden;
+}
+
+.cardContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.formSection {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: #f9fafb; /* subtle off-white */
+  z-index: 10;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.formSection.signUp {
+  transform: translateX(100%);
+}
+
+.formContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 40px 50px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.logoIcon {
+  width: 32px;
+  height: 32px;
+  background: #db2777;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  overflow: hidden;
+}
+
+.logoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.logoSquare {
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 2px;
+}
+
+.logoText {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f2937;
+  font-family: 'Playfair Display', serif;
+}
+
+.formTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 24px;
+  font-family: 'Playfair Display', serif;
+}
+
+.formFields {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.inputGroup {
+  position: relative;
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 12px; /* push inside, aligned with input padding */
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #db2777;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 4px 6px;
+  transition: all 0.3s ease;
+}
+
+.passwordToggle:hover {
+  color: #be185d;
+  background: rgba(219, 39, 119, 0.1);
+  border-radius: 4px;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db; /* light gray border for visibility */
+  border-radius: 8px;        /* soft corners */
+  background: #ffffff;       /* subtle white to stand out */
+  color: #374151;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input::placeholder {
+  color: #9ca3af;
+}
+
+.input:focus {
+  border-color: #db2777;
+  box-shadow: 0 0 0 3px rgba(219, 39, 119, 0.1); /* soft pink glow */
+  background: #ffffff;
+}
+
+.submitButton {
+  width: 100%;
+  background: linear-gradient(90deg, #db2777 0%, #be185d 100%);
+  color: white;
+  padding: 14px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 16px;
+  margin-top: 24px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(219, 39, 119, 0.3);
+  animation: pulse 2s infinite;
+}
+
+.submitButton:hover {
+  background: linear-gradient(90deg, #be185d 0%, #9d174d 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(219, 39, 119, 0.4);
+}
+
+.welcomeSection {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(100%);
+}
+
+.welcomeSection.signUp {
+  transform: translateX(0);
+}
+
+.welcomeBackground {
+  position: relative;
+  height: 100%;
+  background: linear-gradient(135deg, #db2777 0%, #f43f5e 50%, #db2777 100%);
+  overflow: hidden;
+}
+
+.geometricPattern {
+  position: absolute;
+  inset: 0;
+}
+
+.gridPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 4px;
+  height: 100%;
+  transform: rotate(12deg) scale(1.5);
+  animation: gridFloat 20s ease-in-out infinite;
+}
+
+@keyframes gridFloat {
+  0%, 100% { transform: rotate(12deg) scale(1.5) translateY(0); }
+  50% { transform: rotate(12deg) scale(1.5) translateY(-10px); }
+}
+
+.gridItem {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  animation: gridItemFloat 3s ease-in-out infinite;
+}
+
+.gridItem:nth-child(odd) {
+  animation-delay: 0.5s;
+}
+
+.gridItem:nth-child(3n) {
+  animation-delay: 1s;
+}
+
+@keyframes gridItemFloat {
+  0%, 100% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.1); }
+}
+
+/* Beauty-themed floating shapes */
+.floatingShape1 {
+  position: absolute;
+  top: 80px;
+  right: 80px;
+  width: 128px;
+  height: 128px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  transform: rotate(45deg);
+  animation: floatShape1 6s ease-in-out infinite;
+}
+
+@keyframes floatShape1 {
+  0%, 100% { 
+    transform: rotate(45deg) translateY(0);
+    opacity: 0.3;
+  }
+  50% { 
+    transform: rotate(45deg) translateY(-20px);
+    opacity: 0.6;
+  }
+}
+
+.floatingShape2 {
+  position: absolute;
+  bottom: 128px;
+  left: 64px;
+  width: 96px;
+  height: 96px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  transform: rotate(-12deg);
+  animation: floatShape2 8s ease-in-out infinite;
+}
+
+@keyframes floatShape2 {
+  0%, 100% { 
+    transform: rotate(-12deg) translateX(0);
+    opacity: 0.2;
+  }
+  50% { 
+    transform: rotate(-12deg) translateX(15px);
+    opacity: 0.4;
+  }
+}
+
+.floatingShape3 {
+  position: absolute;
+  top: 50%;
+  left: 33%;
+  width: 64px;
+  height: 64px;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  transform: rotate(30deg);
+  animation: floatShape3 4s ease-in-out infinite;
+}
+
+@keyframes floatShape3 {
+  0%, 100% { 
+    transform: rotate(30deg) scale(1);
+    opacity: 0.25;
+  }
+  50% { 
+    transform: rotate(30deg) scale(1.2);
+    opacity: 0.5;
+  }
+}
+
+.welcomeContent {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 0 50px;
+  color: white;
+}
+
+.toggleButton {
+  padding: 8px 24px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  color: white;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  margin-bottom: 32px;
+  align-self: flex-start;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.toggleButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.welcomeTitle {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  font-family: 'Playfair Display', serif;
+}
+
+.welcomeBrand {
+  display: block;
+  margin-top: 8px;
+}
+
+.welcomeText {
+  font-size: 18px;
+  opacity: 0.9;
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+.navigationDots {
+  display: flex;
+  gap: 8px;
+  margin-top: 48px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: white;
+}
+
+.dotInactive {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* OTP Verification Styles - Salon themed */
+.otpMessage {
+  margin-bottom: 20px;
+  background: #fce7f3;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #fbcfe8;
+}
+
+.otpMessage p {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.4;
+  text-align: center;
+  margin: 0;
+}
+
+.otpActions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.backButton,
+.resendButton {
+  flex: 1;
+  padding: 10px 16px;
+  border: 2px solid #e5e7eb;
+  background: transparent;
+  color: #6b7280;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.backButton:hover,
+.resendButton:hover {
+  border-color: #db2777;
+  color: #db2777;
+  background: rgba(219, 39, 119, 0.05);
+}
+
+.backButton {
+  border-color: #d1d5db;
+}
+
+.resendButton {
+  border-color: #db2777;
+  color: #db2777;
+}
+
+.resendButton:hover {
+  background: #db2777;
+  color: white;
+}
+
+/* Pulse animation for salon theme */
+@keyframes pulse {
+  0% { 
+    box-shadow: 0 0 0 0 rgba(219, 39, 119, 0.4);
+  }
+  70% { 
+    box-shadow: 0 0 0 10px rgba(219, 39, 119, 0);
+  }
+  100% { 
+    box-shadow: 0 0 0 0 rgba(219, 39, 119, 0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .container {
+    padding: 40px;
+  }
+  
+  .mainCard {
+    max-width: 800px;
+    height: 500px;
+  }
+  
+  .formContent,
+  .welcomeContent {
+    padding: 0 35px;
+  }
+  
+  .welcomeTitle {
+    font-size: 36px;
+  }
+  
+  .formTitle {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 30px;
+  }
+  
+  .mainCard {
+    max-width: 750px;
+    height: 480px;
+  }
+  
+  .formContent,
+  .welcomeContent {
+    padding: 0 30px;
+  }
+  
+  .welcomeTitle {
+    font-size: 32px;
+  }
+  
+  .welcomeText {
+    font-size: 16px;
+  }
+  
+  .floatingShape1 {
+    width: 100px;
+    height: 100px;
+    top: 60px;
+    right: 60px;
+  }
+  
+  .floatingShape2 {
+    width: 80px;
+    height: 80px;
+    bottom: 100px;
+    left: 50px;
+  }
+  
+  .floatingShape3 {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+    height: 100vh;
+  }
+  
+  .mainCard {
+    width: 100%;
+    height: 100%;
+    max-height: 600px;
+    border-radius: 16px;
+  }
+  
+  .cardContainer {
+    flex-direction: column;
+  }
+  
+  .formSection {
+    position: relative;
+    width: 100%;
+    height: 60%;
+    transform: translateX(0) !important;
+  }
+  
+  .formSection.signUp {
+    transform: translateX(0) !important;
+    order: 2;
+  }
+  
+  .welcomeSection {
+    position: relative;
+    width: 100%;
+    height: 40%;
+    transform: translateX(0) !important;
+  }
+  
+  .welcomeSection.signUp {
+    transform: translateX(0) !important;
+    order: 1;
+  }
+  
+  .formContent,
+  .welcomeContent {
+    padding: 20px;
+    justify-content: center;
+  }
+  
+  .welcomeTitle {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .welcomeText {
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .formTitle {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .logo {
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .navigationDots {
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .toggleButton {
+    align-self: center;
+    margin-bottom: 20px;
+  }
+  
+  .floatingShape1,
+  .floatingShape2,
+  .floatingShape3 {
+    display: none;
+  }
+  
+  .gridPattern {
+    opacity: 0.1;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+  }
+  
+  .mainCard {
+    border-radius: 12px;
+  }
+  
+  .formContent,
+  .welcomeContent {
+    padding: 15px;
+  }
+  
+  .welcomeTitle {
+    font-size: 20px;
+  }
+  
+  .formTitle {
+    font-size: 18px;
+  }
+  
+  .logoText {
+    font-size: 16px;
+  }
+  
+  .logoIcon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .input {
+    font-size: 14px;
+    padding: 10px 0;
+  }
+  
+  .submitButton {
+    padding: 12px;
+    font-size: 14px;
+  }
+  
+  .passwordToggle {
+    font-size: 12px;
+    padding: 3px 6px;
+  }
+  
+  .welcomeText {
+    font-size: 13px;
+  }
+  
+  .otpMessage p {
+    font-size: 12px;
+  }
+  
+  .backButton,
+  .resendButton {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 320px) {
+  .container {
+    padding: 10px;
+  }
+  
+  .formContent,
+  .welcomeContent {
+    padding: 10px;
+  }
+  
+  .welcomeTitle {
+    font-size: 18px;
+  }
+  
+  .formTitle {
+    font-size: 16px;
+  }
+  
+  .logoText {
+    font-size: 14px;
+  }
+  
+  .welcomeText {
+    font-size: 12px;
+  }
+}
+
+/* Landscape orientation adjustments for tablets */
+@media (max-width: 1024px) and (orientation: landscape) {
+  .mainCard {
+    height: 90vh;
+    max-height: 500px;
+  }
+  
+  .formContent,
+  .welcomeContent {
+    padding: 0 25px;
+  }
+}
+
+/* Very small landscape phones */
+@media (max-width: 768px) and (orientation: landscape) and (max-height: 500px) {
+  .container {
+    height: 100vh;
+    padding: 10px;
+  }
+  
+  .mainCard {
+    height: 100%;
+    max-height: none;
+  }
+  
+  .cardContainer {
+    flex-direction: row;
+  }
+  
+  .formSection {
+    width: 60%;
+    height: 100%;
+  }
+  
+  .welcomeSection {
+    width: 40%;
+    height: 100%;
+  }
+  
+  .formSection.signUp {
+    transform: translateX(66.67%);
+  }
+  
+  .welcomeSection.signUp {
+    transform: translateX(-150%);
+  }
+  
+  .formContent,
+  .welcomeContent {
+    padding: 15px;
+  }
+  
+  .welcomeTitle {
+    font-size: 18px;
+  }
+  
+  .formTitle {
+    font-size: 16px;
+  }
+  
+  .logo {
+    margin-bottom: 15px;
+  }
+}
+
+/* Additional salon-specific styling */
+.formSection {
+  box-shadow: 0 0 20px rgba(219, 39, 119, 0.1);
+}
+
+.input:focus {
+  box-shadow: 0 2px 8px rgba(219, 39, 119, 0.1);
+}
+
+.submitButton {
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}

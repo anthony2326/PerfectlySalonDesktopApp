@@ -1,0 +1,445 @@
+/* Import Font Awesome */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  background: #fef1f7;
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Main Content Styles */
+.mainContent {
+  flex: 1;
+  padding: 30px;
+  overflow: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.pageTitle {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 5px 0;
+  font-family: "Playfair Display", serif;
+}
+
+.subtitle {
+  color: #6b7280;
+  margin: 0;
+  font-size: 14px;
+}
+
+.publishButton {
+  display: flex;
+  align-items: center;
+  padding: 12px 24px;
+  background: #db2777;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.publishButton:hover {
+  background: #be185d;
+  transform: translateY(-2px);
+}
+
+.buttonIcon {
+  margin-right: 8px;
+}
+
+/* Form Card */
+.formCard {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #fbcfe8;
+  box-shadow: 0 2px 4px rgba(219, 39, 119, 0.1);
+  margin-bottom: 30px;
+}
+
+.formTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 20px 0;
+  font-family: "Playfair Display", serif;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.input,
+.textarea,
+.select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #fbcfe8;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  outline: none;
+  border-color: #db2777;
+  box-shadow: 0 0 0 3px rgba(219, 39, 119, 0.1);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.submitButton {
+  display: flex;
+  align-items: center;
+  padding: 12px 24px;
+  background: #db2777;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submitButton:hover {
+  background: #be185d;
+  transform: translateY(-2px);
+}
+
+/* Added filter tabs styling */
+.filterTabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.filterTab {
+  padding: 10px 24px;
+  background: white;
+  border: 2px solid #fbcfe8;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filterTab:hover {
+  border-color: #db2777;
+  color: #db2777;
+}
+
+.filterTabActive {
+  background: #db2777;
+  border-color: #db2777;
+  color: white;
+}
+
+/* Announcements List */
+.announcementsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Empty State */
+.emptyState {
+  background: white;
+  padding: 60px 24px;
+  border-radius: 12px;
+  border: 1px solid #fbcfe8;
+  text-align: center;
+}
+
+.emptyIcon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.emptyTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+  font-family: "Playfair Display", serif;
+}
+
+.emptyText {
+  color: #6b7280;
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Redesigned announcement card with left border */
+.announcementCard {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  border-left: 6px solid;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.announcementCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Updated priority colors for left border */
+.priorityPromotions {
+  border-left-color: #db2777;
+}
+
+.priorityEvents {
+  border-left-color: #10b981;
+}
+
+.priorityNotices {
+  border-left-color: #ef4444;
+}
+
+/* Redesigned header with badge and posted date */
+.announcementHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+/* New category badge styling */
+.categoryBadge {
+  font-size: 11px;
+  font-weight: 700;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badgePromotions {
+  background: #db2777;
+}
+
+.badgeEvents {
+  background: #10b981;
+}
+
+.badgeNotices {
+  background: #ef4444;
+}
+
+/* Posted date styling */
+.postedDate {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.postedLabel {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.dateValue {
+  font-size: 13px;
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.announcementTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 12px 0;
+  font-family: "Playfair Display", serif;
+  line-height: 1.3;
+}
+
+.announcementMessage {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 0 0 16px 0;
+}
+
+/* Added validity date styling */
+.validUntil {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #dc2626;
+  background: #fef2f2;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.validUntil i {
+  font-size: 14px;
+}
+
+/* Added highlight box styling */
+.highlightBox {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #dc2626;
+  background: #fef2f2;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 2px solid #fecaca;
+}
+
+.highlightBox i {
+  font-size: 18px;
+}
+
+/* Added delete button styling */
+.deleteButton {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background: #fee2e2;
+  color: #dc2626;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deleteButton:hover {
+  background: #dc2626;
+  color: white;
+  transform: scale(1.05);
+}
+
+.deleteButton i {
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .mainContent {
+    padding: 20px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .publishButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .pageTitle {
+    font-size: 24px;
+  }
+
+  .formCard {
+    padding: 16px;
+  }
+
+  .announcementCard {
+    padding: 16px;
+  }
+
+  /* Responsive filter tabs */
+  .filterTabs {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .filterTab {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .announcementHeader {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .postedDate {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainContent {
+    padding: 15px;
+  }
+
+  .pageTitle {
+    font-size: 20px;
+  }
+
+  .announcementTitle {
+    font-size: 18px;
+  }
+ .errorMessage {
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+}

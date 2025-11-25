@@ -1,0 +1,790 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    height: 100vh;
+    background: linear-gradient(135deg, #9d3759 0%, #7a2f46 50%, #2d2f35 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Poppins, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.mainCard {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 550px;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(219, 39, 119, 0.25);
+    overflow: hidden;
+}
+
+.cardContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+/* Modal Styles */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    min-width: 300px;
+    animation: slideUp 0.3s ease;
+}
+
+.modalSuccess {
+    border-top: 4px solid #4caf50;
+}
+
+.modalError {
+    border-top: 4px solid #f44336;
+}
+
+.modalIcon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0 auto 20px;
+}
+
+.modalSuccess .modalIcon {
+    background: #e8f5e9;
+    color: #4caf50;
+}
+
+.modalError .modalIcon {
+    background: #ffebee;
+    color: #f44336;
+}
+
+.modalMessage {
+    font-size: 16px;
+    color: #333;
+    margin: 0;
+    font-weight: 500;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Progress Bar */
+.progressBar {
+    width: 100%;
+    height: 4px;
+    background: #e5e7eb;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.progressFill {
+    height: 100%;
+    background: linear-gradient(90deg, #db2777 0%, #f43f5e 100%);
+    transition: width 0.3s ease;
+}
+
+/* Button Row for Back/Next */
+.buttonRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.backButton {
+    width: 100%;
+    background: #f3f4f6;
+    color: #6b7280;
+    padding: 14px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.backButton:hover:not(:disabled) {
+    background: #e5e7eb;
+    transform: translateY(-2px);
+}
+
+.backButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.formSection {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: #f9fafb;
+    z-index: 10;
+    box-shadow: 0 0 20px rgba(219, 39, 119, 0.1);
+}
+
+.formContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 40px 50px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.logoIcon {
+    width: 32px;
+    height: 32px;
+    background: #db2777;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    overflow: hidden;
+}
+
+.logoImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.logoSquare {
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 2px;
+}
+
+.logoText {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2937;
+    font-family: 'Playfair Display', serif;
+}
+
+.formTitle {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 24px;
+    font-family: 'Playfair Display', serif;
+}
+
+.formFields {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.inputGroup {
+    position: relative;
+}
+
+.passwordToggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #db2777;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 4px 6px;
+    transition: all 0.3s ease;
+}
+
+.passwordToggle:hover {
+    color: #be185d;
+    background: rgba(219, 39, 119, 0.1);
+    border-radius: 4px;
+}
+
+.input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #374151;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input::placeholder {
+    color: #9ca3af;
+}
+
+.input:focus {
+    border-color: #db2777;
+    box-shadow: 0 0 0 3px rgba(219, 39, 119, 0.1), 0 2px 8px rgba(219, 39, 119, 0.1);
+    background: #ffffff;
+}
+
+.input:disabled {
+    background-color: #f7fafc;
+    cursor: not-allowed;
+}
+
+.submitButton {
+    width: 100%;
+    background: linear-gradient(90deg, #db2777 0%, #be185d 100%);
+    color: white;
+    padding: 14px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 24px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(219, 39, 119, 0.3);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.submitButton:hover:not(:disabled) {
+    background: linear-gradient(90deg, #be185d 0%, #9d174d 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(219, 39, 119, 0.4);
+}
+
+.submitButton:disabled {
+    background: #d1d5db;
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none;
+}
+
+/* Verification Row */
+.verificationRow {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.verificationInput {
+    flex: 1;
+    padding: 12px 14px;
+    border: 2px solid #d1d5db;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #374151;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+    text-align: center;
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+
+.verificationInput:focus {
+    border-color: #db2777;
+    box-shadow: 0 0 0 3px rgba(219, 39, 119, 0.1);
+}
+
+.verificationInput:disabled {
+    background-color: #f7fafc;
+    cursor: not-allowed;
+}
+
+.verificationInputVerified {
+    border-color: #4caf50;
+    background-color: #f1f8f4;
+}
+
+.verifyButton {
+    padding: 12px 20px;
+    background: linear-gradient(90deg, #db2777 0%, #be185d 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    min-width: 100px;
+}
+
+.verifyButton:hover:not(:disabled) {
+    background: linear-gradient(90deg, #be185d 0%, #9d174d 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(219, 39, 119, 0.3);
+}
+
+.verifyButton:disabled,
+.verifyButtonDisabled {
+    background: #d1d5db;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.hintText {
+    font-size: 11px;
+    color: #6b7280;
+    margin-top: 6px;
+    text-align: center;
+    font-style: italic;
+}
+
+.verifiedText {
+    font-size: 12px;
+    color: #4caf50;
+    margin-top: 6px;
+    text-align: center;
+    font-weight: 600;
+    animation: fadeInText 0.3s ease-in;
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.welcomeSection {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+}
+
+.welcomeBackground {
+    position: relative;
+    height: 100%;
+    background: linear-gradient(135deg, #db2777 0%, #f43f5e 50%, #db2777 100%);
+    overflow: hidden;
+}
+
+.geometricPattern {
+    position: absolute;
+    inset: 0;
+}
+
+.gridPattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 4px;
+    height: 100%;
+    transform: rotate(12deg) scale(1.5);
+    animation: gridFloat 20s ease-in-out infinite;
+}
+
+@keyframes gridFloat {
+    0%, 100% {
+        transform: rotate(12deg) scale(1.5) translateY(0);
+    }
+    50% {
+        transform: rotate(12deg) scale(1.5) translateY(-10px);
+    }
+}
+
+.gridItem {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    animation: gridItemFloat 3s ease-in-out infinite;
+}
+
+.gridItem:nth-child(odd) {
+    animation-delay: 0.5s;
+}
+
+.gridItem:nth-child(3n) {
+    animation-delay: 1s;
+}
+
+@keyframes gridItemFloat {
+    0%, 100% {
+        opacity: 0.1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.3;
+        transform: scale(1.1);
+    }
+}
+
+.floatingShape1 {
+    position: absolute;
+    top: 80px;
+    right: 80px;
+    width: 128px;
+    height: 128px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    transform: rotate(45deg);
+    animation: floatShape1 6s ease-in-out infinite;
+}
+
+@keyframes floatShape1 {
+    0%, 100% {
+        transform: rotate(45deg) translateY(0);
+        opacity: 0.3;
+    }
+    50% {
+        transform: rotate(45deg) translateY(-20px);
+        opacity: 0.6;
+    }
+}
+
+.floatingShape2 {
+    position: absolute;
+    bottom: 128px;
+    left: 64px;
+    width: 96px;
+    height: 96px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    transform: rotate(-12deg);
+    animation: floatShape2 8s ease-in-out infinite;
+}
+
+@keyframes floatShape2 {
+    0%, 100% {
+        transform: rotate(-12deg) translateX(0);
+        opacity: 0.2;
+    }
+    50% {
+        transform: rotate(-12deg) translateX(15px);
+        opacity: 0.4;
+    }
+}
+
+.floatingShape3 {
+    position: absolute;
+    top: 50%;
+    left: 33%;
+    width: 64px;
+    height: 64px;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    transform: rotate(30deg);
+    animation: floatShape3 4s ease-in-out infinite;
+}
+
+@keyframes floatShape3 {
+    0%, 100% {
+        transform: rotate(30deg) scale(1);
+        opacity: 0.25;
+    }
+    50% {
+        transform: rotate(30deg) scale(1.2);
+        opacity: 0.5;
+    }
+}
+
+.welcomeContent {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 0 50px;
+    color: white;
+}
+
+.toggleButton {
+    padding: 8px 24px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    color: white;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    margin-bottom: 32px;
+    align-self: flex-start;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.toggleButton:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.welcomeTitle {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    font-family: 'Playfair Display', serif;
+}
+
+.welcomeBrand {
+    display: block;
+    margin-top: 8px;
+}
+
+.welcomeText {
+    font-size: 18px;
+    opacity: 0.9;
+    line-height: 1.6;
+    max-width: 400px;
+}
+
+.navigationDots {
+    display: flex;
+    gap: 8px;
+    margin-top: 48px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.dotInactive {
+    background: rgba(255, 255, 255, 0.3);
+    width: 8px;
+    height: 8px;
+}
+
+.errorMessage {
+    background-color: #fee;
+    color: #c53030;
+    border: 1px solid #feb2b2;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    text-align: center;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .container {
+        padding: 40px;
+    }
+
+    .mainCard {
+        max-width: 800px;
+        height: 500px;
+    }
+
+    .formContent,
+    .welcomeContent {
+        padding: 0 35px;
+    }
+
+    .welcomeTitle {
+        font-size: 36px;
+    }
+
+    .formTitle {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        height: 100vh;
+    }
+
+    .mainCard {
+        width: 100%;
+        height: 100%;
+        max-height: 650px;
+        border-radius: 16px;
+    }
+
+    .cardContainer {
+        flex-direction: column;
+    }
+
+    .formSection {
+        position: relative;
+        width: 100%;
+        height: 65%;
+        order: 2;
+    }
+
+    .welcomeSection {
+        position: relative;
+        width: 100%;
+        height: 35%;
+        order: 1;
+    }
+
+    .formContent,
+    .welcomeContent {
+        padding: 20px;
+        justify-content: center;
+    }
+
+    .welcomeTitle {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 12px;
+    }
+
+    .welcomeText {
+        font-size: 13px;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .formTitle {
+        font-size: 18px;
+        margin-bottom: 16px;
+        text-align: center;
+    }
+
+    .logo {
+        justify-content: center;
+        margin-bottom: 16px;
+    }
+
+    .navigationDots {
+        justify-content: center;
+        margin-top: 15px;
+    }
+
+    .toggleButton {
+        align-self: center;
+        margin-bottom: 15px;
+        font-size: 12px;
+        padding: 6px 20px;
+    }
+
+    .floatingShape1,
+    .floatingShape2,
+    .floatingShape3 {
+        display: none;
+    }
+
+    .gridPattern {
+        opacity: 0.1;
+    }
+
+    .verificationRow {
+        flex-direction: column;
+    }
+    
+    .verificationInput {
+        width: 100%;
+    }
+    
+    .verifyButton {
+        width: 100%;
+    }
+
+    .modal {
+        min-width: 280px;
+        padding: 30px 20px;
+    }
+
+    .modalIcon {
+        width: 50px;
+        height: 50px;
+        font-size: 28px;
+    }
+
+    .modalMessage {
+        font-size: 14px;
+    }
+
+    .buttonRow {
+        gap: 8px;
+    }
+}
